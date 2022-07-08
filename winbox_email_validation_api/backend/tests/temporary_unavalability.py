@@ -3,7 +3,7 @@ import dns.resolver
 import socket
 import time
 
-from helpers.mail_helpers import get_domain
+from backend.helpers.mail_helpers import get_domain
 
 def smtp_mail(email, host, server):
     server.helo(host)

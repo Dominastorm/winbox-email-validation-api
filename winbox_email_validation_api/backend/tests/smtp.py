@@ -1,10 +1,12 @@
 import dns.resolver
 import smtplib
 import socket
-from helpers.mail_helpers import get_domain
+from backend.helpers.mail_helpers import get_domain
 
 def smtp_test(email):
+    
     try:
+        
         domain = get_domain(email)
         
         # Get the mx record
@@ -18,7 +20,7 @@ def smtp_test(email):
         server.set_debuglevel(0)
         
         # SMTP Conversation
-        server.connect(mx_record)
+        server.connect(mx_record)      
         server.helo(host)
         server.mail('dchawla228@gmail.com') 
         code, message = server.rcpt(str(email))

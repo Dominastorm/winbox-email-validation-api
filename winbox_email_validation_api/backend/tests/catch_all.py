@@ -2,8 +2,8 @@ import random
 import string
 import math
 
-from helpers.mail_helpers import get_domain
-from tests.smtp import smtp_test
+from backend.helpers.mail_helpers import get_domain
+from backend.tests.smtp import smtp_test
 
 def catch_all_test(email):
     # performing catch-all detection by performing smtp test on randomly generated emails

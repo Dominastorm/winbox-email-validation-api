@@ -1,4 +1,4 @@
-from roles_and_domains import roles
+from backend.roles_and_domains import roles
 
 def get_username(email):
     return email.split('@')[0]

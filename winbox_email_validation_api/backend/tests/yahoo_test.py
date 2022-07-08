@@ -5,7 +5,7 @@ import email
 from email.header import decode_header
 
 username = "testwinbox@gmail.com"
-password = "kzHtgolLS3K86uSQCy7VUXQ5r5UEVbrAo"
+password = "ypsdccdiwccyrkrk"
 
 def send_mails(username, password, emails):
     s = smtplib.SMTP('smtp.gmail.com', 587)
