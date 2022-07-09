@@ -1,0 +1,184 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# Winbox Email Validation
+
+This API allows you to perform various email validation tests.
+
+## Regex Test [/validate/regex/{email_id}]
+
+##### Perform regualar expressions test to check whether the email follows the pattern "username@domain.com"
+##### Support for both internationalized domains and mailboxes. Utilizes Unicode (Punycode and UTF-8) to ensure all contacts are accurately verified, regardless of where they are or which alphabet they use.
+
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+
++ Response 200 (application/json)
+
+        {
+            "test" : "regex",
+            "email" : "example@email.com"
+            "result" : "valid"
+        }
+
+## International Regex Test [/validate/international_regex/{email_id}]
+
+##### Support for both internationalized domains and mailboxes. Utilizes Unicode (Punycode and UTF-8) to ensure all contacts are accurately verified, regardless of where they are or which alphabet they use.
+
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+
++ Response 200 (application/json)
+
+        {
+            "test" : "international regex",
+            "email" : "example@email.com"
+            "result" : "valid"
+        }
+        
+## MX Test [/validate/mx/{email_id}]
+
+##### Check whether Mail Exchange records are set up for the domain 
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "mx",        
+            "email" : "example@email.com"
+            "result" : "valid"
+        }
+
+## SMTP Test [/validate/smtp/{email_id}]
+
+##### Verifies the existence of the specific mailbox without sending an email or notifying the target.
+##### Emulates the behavior of common mail exchangers and employs SMTP protocol.
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "smtp",        
+            "email" : "example@email.com"
+            "result" : "valid"
+        }
+
+## Yahoo Test [/validate/yahoo/{email_id}]
+
+##### Verifies the existence of mailboxes @yahoo.com, @yahoo.co.uk, @yahoo.de, @yahoo.es, @yahoo.it, ...
+##### Yahoo is notoriously difficult to navigate in order to get accurate results: our service supports its mail exchangers as well, so you can verify Yahoo mailboxes with confidence.
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "yahoo",        
+            "email" : "example@email.com"
+            "result" : "valid"
+        }
+
+## Disposable Email Test [/validate/disposable_email/{email_id}]
+
+##### Identifies temporary addresses created by known disposable email providers (e.g. Mailinator, YOPmail, etc).
+##### We check all emails against our extensive list of known disposable email domains to keep your bounce rate low
+
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "disposable email",
+            "email" : "example@email.com"
+            "result" : "no"
+        }
+
+## Role Account Test [/validate/role_account/{email_id}]
+
+##### Highlights common role accounts, which are generic addresses often not belonging to real person.
+##### Role accounts are emails such as *sales@example.com*, *info@example.com*, etc. Mailing to these addresses can impact your deliverability and even result in blacklisting by certain ISPs.
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "role account",
+            "email" : "example@email.com"
+            "result" : "no"
+        }
+
+## Catch All Test [/validate/catch_all/{email_id}]
+
+##### Identifies mail exchangers that accept all emails to their domain, including fake, false or non-existing ones.
+##### This type of server configuration can reduce your open rate and cause problems with certain Email Service Providers (ESP).
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "catch all",        
+            "email" : "example@email.com"
+            "result" : "no"
+        }
+
+## Free Email Test [/validate/free_email/{email_id}]
+
+##### Want to avoid free email providers from your mailings? We flag them for you so you can easily filter them out.
+##### Automatically flags email addresses hosted by known free email providers such as Gmail, Yahoo, Hotmail, Outlook, etc.
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "free email",        
+            "email" : "example@email.com"
+            "result" : "no"
+        }
+
+## Temporary Unavailability Test [/validate/temporary_unavailability/{email_id}]
+
+##### Detects mailboxes which are temporarily unavailable mailboxes.
+##### Our premium level services automatically retry these addresses at specific intervals to avoid graylisting and return a definitive result. 
+        
+### 200 OK [GET]
+
++ Parameters
+    + email_id - Email ID on which the test has to be performed
+    
++ Response 200 (application/json)
+
+        {
+            "test" : "temporary unavailability",        
+            "email" : "example@email.com"
+            "result" : "no"
+        }
