@@ -57,7 +57,7 @@ class YahooView(APIView):
         return Response({
             'test': 'yahoo',
             'email': email,
-            'result': ['invalid', 'valid'][yahoo_test(email)]
+            'result': ['invalid', 'valid', 'Not a Yahoo Domain'][yahoo_test(email)]
         })
 
 

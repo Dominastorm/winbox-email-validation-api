@@ -3,6 +3,8 @@ import time
 import imaplib
 import email
 from email.header import decode_header
+from backend.roles_and_domains import yahoo_domains
+from backend.helpers.mail_helpers import get_domain
 
 username = "testwinbox@gmail.com"
 password = "ypsdccdiwccyrkrk"
@@ -101,4 +103,6 @@ def get_emails(username, password, li):
     return all_messages == ""
 
 def yahoo_test(email):
+    if get_domain(email) not in yahoo_domains:
+        return 2
     return get_emails(username, password, [email])
