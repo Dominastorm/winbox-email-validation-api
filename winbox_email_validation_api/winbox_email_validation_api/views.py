@@ -102,5 +102,5 @@ class TemporaryUnavailabilityView(APIView):
         return Response({
             'test': 'temporary unavailability',
             'email': email,
-            'result': ['no', 'yes'][temporary_unavailability_check(email)]
+            'result': temporary_unavailability_check(email)
         })

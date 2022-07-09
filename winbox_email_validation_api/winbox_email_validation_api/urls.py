@@ -15,5 +15,5 @@ urlpatterns = [
     path('validate/role-account/<str:email>', RoleAccountView.as_view(), name='role-account'),
     path('validate/catch-all/<str:email>', CatchAllView.as_view(), name='catch-all'),
     path('validate/free-email/<str:email>', FreeEmailView.as_view(), name='free-email'),
-    path('validate/temporary-unavailablity/<str:email>', TemporaryUnavailabilityView.as_view(), name='temporary-unavailability'),
+    path('validate/temporary-unavailability/<str:email>', TemporaryUnavailabilityView.as_view(), name='temporary-unavailability'),
 ]
