@@ -3,7 +3,7 @@ import smtplib
 import socket
 from backend.helpers.mail_helpers import get_domain
 
-def smtp_test(email):
+def smtp_validation(email):
     
     try:
         

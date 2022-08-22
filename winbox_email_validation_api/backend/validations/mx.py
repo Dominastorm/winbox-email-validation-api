@@ -2,7 +2,7 @@ import dns.resolver
 from backend.helpers.mail_helpers import get_domain
 # from codecs import encode
 
-def mx_test(email): 
+def mx_validation(email): 
     
     # domain = get_domain(encode(email,'idna'))
     # print("domain",domain)

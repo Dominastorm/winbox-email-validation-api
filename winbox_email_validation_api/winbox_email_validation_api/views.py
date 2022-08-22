@@ -1,14 +1,14 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from backend.tests.catch_all import catch_all_test
-from backend.tests.disposable_email import disposable_email_check
-from backend.tests.email_regex import email_international_regex_check, email_regex_check
-from backend.tests.free_email import free_email_check
-from backend.tests.mx import mx_test
-from backend.tests.role_account import role_account_check
-from backend.tests.smtp import smtp_test
-from backend.tests.temporary_unavalability import temporary_unavailability_check
-from backend.tests.yahoo_test import yahoo_test
+from backend.validations.catch_all import catch_all_validation
+from backend.validations.disposable_email import disposable_email_check
+from backend.validations.email_regex import email_international_regex_check, email_regex_check
+from backend.validations.free_email import free_email_check
+from backend.validations.mx import mx_validation
+from backend.validations.role_account import role_account_check
+from backend.validations.smtp import smtp_validation
+from backend.validations.temporary_unavailability import temporary_unavailability_check
+from backend.validations.yahoo_validation import yahoo_validation
 
 
 class MailView(APIView):
@@ -39,7 +39,7 @@ class MXView(APIView):
         return Response({
             'test': 'mx',
             'email': email,
-            'result': ['invalid', 'valid'][mx_test(email)]
+            'result': ['invalid', 'valid'][mx_validation(email)]
         })
 
 
@@ -48,7 +48,7 @@ class SMTPView(APIView):
         return Response({
             'test': 'smtp',
             'email': email,
-            'result': ['invalid', 'valid'][smtp_test(email)]
+            'result': ['invalid', 'valid'][smtp_validation(email)]
         })
 
 
@@ -57,7 +57,7 @@ class YahooView(APIView):
         return Response({
             'test': 'yahoo',
             'email': email,
-            'result': ['invalid', 'valid', 'Not a Yahoo Email'][yahoo_test(email)]
+            'result': ['invalid', 'valid', 'Not a Yahoo Email'][yahoo_validation(email)]
         })
 
 
@@ -84,7 +84,7 @@ class CatchAllView(APIView):
         return Response({
             'test': 'catch all',
             'email': email,
-            'result': ['no', 'yes'][catch_all_test(email)]
+            'result': ['no', 'yes'][catch_all_validation(email)]
         })
 
 

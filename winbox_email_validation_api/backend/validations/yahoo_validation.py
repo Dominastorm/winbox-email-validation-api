@@ -102,7 +102,7 @@ def get_emails(username, password, li):
     imap.logout()
     return all_messages == ""
 
-def yahoo_test(email):
+def yahoo_validation(email):
     if get_domain(email) not in yahoo_domains:
         return 2
     return get_emails(username, password, [email])
