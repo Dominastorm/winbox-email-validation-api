@@ -1,0 +1,8 @@
+email,regex,international-regex
+abc,invalid,invalid
+abc@def,invalid,invalid
+abc.com,invalid,invalid
+@xyz.com,invalid,invalid
+a@b.c,valid,valid
+pqr@yahoo.com,valid,valid
+abc@gmail.com,valid,valid
