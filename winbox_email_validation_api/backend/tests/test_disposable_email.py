@@ -7,7 +7,7 @@ URL = ALLOWED_HOSTS[1]
 FILE_NAME = 'test_disposable_email.csv'
 
 class TestDisposableEmail(unittest.TestCase):
-    def test_email_regex_check(self):
+    def test_disposable_email(self):
         test = 'disposable-email'
         # read csv file
         df = pd.read_csv(rf'winbox_email_validation_api\backend\tests\{FILE_NAME}')

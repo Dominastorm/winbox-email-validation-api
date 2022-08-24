@@ -4,11 +4,11 @@ import requests
 import pandas as pd
 
 URL = ALLOWED_HOSTS[1]
-FILE_NAME = 'test_role_account.csv'
+FILE_NAME = 'test_mx.csv'
 
-class TestRoleAccount(unittest.TestCase):
-    def test_role_account(self):
-        test = 'role-account'
+class TestMX(unittest.TestCase):
+    def test_mx(self):
+        test = 'mx'
         # read csv file
         df = pd.read_csv(rf'winbox_email_validation_api\backend\tests\{FILE_NAME}')
         # iterate over each row in the csv file
